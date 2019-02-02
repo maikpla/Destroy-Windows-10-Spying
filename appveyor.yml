@@ -1,0 +1,13 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
+image: Visual Studio 2017
+configuration: Release
+build_script:
+- ps: >-
+    dotnet --version
+    dotnet publish -c Release -r win-x64    
+    7z a DWS-$env:APPVEYOR_BUILD_VERSION-win_x64.zip $env:APPVEYOR_BUILD_FOLDER\DWS\bin\Release\netcoreapp2.1\win-x64\publish\
+   artifacts:
+- path: DWS-%APPVEYOR_BUILD_VERSION%-win_x64.zip
