@@ -9,5 +9,5 @@ build_script:
     dotnet --version
     dotnet publish -c Release -r win-x64    
     7z a DWS-$env:APPVEYOR_BUILD_VERSION-win_x64.zip $env:APPVEYOR_BUILD_FOLDER\DWS\bin\Release\netcoreapp2.1\win-x64\publish\
-   artifacts:
+artifacts:
 - path: DWS-win_x64.zip
